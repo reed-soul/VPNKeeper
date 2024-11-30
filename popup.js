@@ -161,7 +161,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   const testButton = document.getElementById("testButton");
   testButton.addEventListener("click", testConnection);
 
-  // 在popup.js中添加interval设置的处理
+  // 监听间隔时间变化
   document.getElementById('intervalInput').addEventListener('change', async (e) => {
     const interval = parseInt(e.target.value, 10);
     await chrome.storage.local.set({ interval });

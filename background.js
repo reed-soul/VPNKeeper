@@ -42,6 +42,9 @@ async function pingVPN(retryCount = 0) {
       throw new Error("心跳地址未配置");
     }
 
+    // 验证URL格式
+    new URL(pingUrl);
+
     const response = await fetch(
       pingUrl,
       {
