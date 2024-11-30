@@ -8,13 +8,18 @@ async function showNotification(title, message) {
 }
 
 // 初始化配置
-chrome.runtime.onInstalled.addListener(() => {
+chrome.runtime.onInstalled.addListener(async () => {
+  const { pingUrl } = await chrome.storage.local.get("pingUrl");
+  if (!pingUrl) {
+    chrome.storage.local.set({
+      pingUrl: "" // 默认地址
+    });
+  }
   chrome.storage.local.set({
     isEnabled: true,
     interval: 10, // 默认10分钟
     lastPingTime: null,
-    status: "running",
-    pingUrl: "http://10.3.4.193:10001/websso/tpaas-auth/locale/list" // 默认地址
+    status: "running"
   });
   setupAlarm();
 });
