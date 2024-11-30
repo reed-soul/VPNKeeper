@@ -1,0 +1,42 @@
+{
+  "name": "vpnkeeper",
+  "version": "1.0.0",
+  "packageManager": "pnpm@8.15.4",
+  "engines": {
+    "node": ">=18",
+    "pnpm": ">=8"
+  },
+  "description": "VPNKeeper 是一个轻量级的 Chrome 扩展程序，通过定期发送心跳请求来保持 VPN 连接活跃。它可以有效防止 VPN 连接因长时间无活动而自动断开的问题。",
+  "main": "background.js",
+  "scripts": {
+    "preinstall": "npx only-allow pnpm",
+    "build": "rspack",
+    "test": "jest --coverage",
+    "test:watch": "jest --watch",
+    "lint": "eslint 'src/**/*.{ts,tsx}'",
+    "start": "rspack --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@eslint/js": "^9.16.0",
+    "@rspack/cli": "^1.1.4",
+    "@rspack/core": "^1.1.4",
+    "@testing-library/jest-dom": "^6.4.2",
+    "@types/chrome": "^0.0.287",
+    "@types/jest": "^29.5.14",
+    "@types/node": "^22.10.1",
+    "@typescript-eslint/eslint-plugin": "^8.16.0",
+    "@typescript-eslint/parser": "^8.16.0",
+    "copy-webpack-plugin": "^12.0.2",
+    "eslint": "^9.16.0",
+    "globals": "^15.12.0",
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
+    "ts-jest": "^29.1.2",
+    "ts-loader": "^9.5.1",
+    "typescript": "^5.7.2",
+    "typescript-eslint": "^8.16.0"
+  }
+}
