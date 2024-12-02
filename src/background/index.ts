@@ -12,11 +12,13 @@ chrome.runtime.onInstalled.addListener(() => {
 chrome.alarms.onAlarm.addListener(handleAlarm);
 
 // 添加消息监听
-chrome.runtime.onMessage.addListener((message,) => {
+chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
   if (message.action === 'resetAlarm') {
-    chrome.alarms.clear('vpnKeeper', () => {
-      pingVPN();
-      setupAlarm(message.interval);
+    chrome.alarms.clear('vpnKeeper', async () => {
+      await pingVPN();
+      await setupAlarm(message.interval);
+      sendResponse({ success: true });
     });
+    return true; // 保持消息通道开放
   }
 }); 

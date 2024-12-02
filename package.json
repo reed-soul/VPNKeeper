@@ -1,7 +1,8 @@
 {
   "name": "vpnkeeper",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "packageManager": "pnpm@8.15.4",
+  "type": "module",
   "engines": {
     "node": ">=18",
     "pnpm": ">=8"
@@ -11,6 +12,7 @@
   "scripts": {
     "preinstall": "npx only-allow pnpm",
     "build": "rspack",
+    "pack": "node pack.js",
     "test": "jest --coverage",
     "test:watch": "jest --watch",
     "lint": "eslint 'src/**/*.{ts,tsx}'",
@@ -29,6 +31,7 @@
     "@types/node": "^22.10.1",
     "@typescript-eslint/eslint-plugin": "^8.16.0",
     "@typescript-eslint/parser": "^8.16.0",
+    "archiver": "^7.0.1",
     "copy-webpack-plugin": "^12.0.2",
     "eslint": "^9.16.0",
     "globals": "^15.12.0",
